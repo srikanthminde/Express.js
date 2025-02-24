@@ -1,0 +1,18 @@
+html 
+    head
+        link(rel="stylesheet", href="bootstrap.min.css")  
+    body
+        include nav.pug
+            each info, i in reviews
+                div(class="card shadow-2 p-2 w-25 m-3")
+                    h6=`${info.name}`
+                    img(src=`${info.image}`,class="w-75 p-2 rounded-5 shadow")
+                    h6=`${info.review}`
+                    h6=`${info.rating}`
+                        div(class="d-flex p-2 text-center")
+                            div(class="text-decoration-none d-flex ")
+                                button(class="btn btn-danger m-2")
+                                    a(href=`/review/delete/${i}`) delete
+                            div(class="text-decoration-none d-flex ")
+                                button(class="btn btn-warning m-2")
+                                    a(href=`/review/edit/${i}`) edit          
