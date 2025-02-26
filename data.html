@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="2">
+        <thead>
+            <th>firstName</th>
+            <th>lastName</th>
+            <th>Age</th>
+        </thead>
+        <tbody id="d5">
+         
+        </tbody>
+    </table>
+    
+    <script>
+     
+      function ab (){
+        fetch("http://localhost:8000/data").then(function(res){
+            res.json().then(function(data){
+                console.log(data)
+                data.map(function(k){
+                    var trow=document.createElement("tr")
+
+                    var td1=document.createElement("td")
+                    td1.innerHTML=k.firstName
+                    trow.appendChild(td1)
+
+
+                    var td2=document.createElement("td")
+                    td2.innerHTML=k.lastName
+                    trow.appendChild(td2)
+
+
+                    var td3=document.createElement("td")
+                    td3.innerHTML=k.age
+                    trow.appendChild(td3)
+
+
+                    document.getElementById("d5").appendChild(trow) 
+                })
+            })
+        })
+      }
+      
+      ab()
+      
+    </script>
+</body>
+</html>
+
+
+
